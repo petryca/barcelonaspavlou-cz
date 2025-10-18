@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,800&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    --max-width: 1000px;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    line-height: 1.4;
+    padding: 3rem;
+}
+
+b {
+    font-weight: 800;
+}
+
+.large {
+    font-size: 1.2rem;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+    gap: 2rem;
+    max-width: var(--max-width);
+    margin: auto;
+}
+
+header>div:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#book {
+    transform: rotate(10deg);
+}
+
+@media (max-width: 768px) {
+    header {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    header>div:nth-child(1) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    header>div:nth-child(2) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #book {
+        transform: rotate(-4deg);
+        max-width: 26rem;
+    }
+    
+}
+
+.material-symbols-outlined {
+    font-size: 6rem !important; /* Force the size */
+    display: block;
+    text-decoration: none;
+    color: #000;
+    transition: all 0.3s ease;
+}
+
+.material-symbols-outlined:hover {
+    color: #3688f2;
+    transform: scale(1.1);
+}
+
+#icons {
+    text-align: center;
+    display: flex;
+    gap: 1.8rem;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: auto;
+    justify-content: space-between;
+}
+
+@media (max-width: 680px) {
+    #icons {
+        flex-direction: column;
+    }  
+}
+
+#pavla {
+    position: relative;
+    max-width: var(--max-width);
+    margin: auto;
+}
+
+#pavla img {
+    border-radius: 50%;
+}
+
+#pavla>div {
+    position: relative;
+    background-color: #3688f2;
+    border-radius: 2rem 2rem 2rem 0;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    max-width: var(--max-width);
+    margin-left: 3rem;
+}
+
+#pavla>div:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    z-index: 1;
+    border-style: solid;
+    border-width: 0 0 3rem 3rem;
+    border-color: transparent transparent #3688f2 transparent;
+    bottom: 0;
+    left: -3rem;
+}
+
+#pavla>div>div {
+    padding: 1.5rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    #pavla>div {
+        margin-left: 0;
+        border-radius: 2rem;
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    #pavla>div:after {
+        display: none;
+    }
+    #pavla>div>div:nth-child(1) {
+        padding: 2rem 3rem 1rem 3em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #pavla>div>div:nth-child(2) {
+        padding: 0 2rem 2rem 2rem;
+    }
+    #pavla img {
+        max-width: 12rem;
+    }
+}
+
+.cols {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+}
+
+.cols>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cols>div:first-child {
+    flex: 2;
+}
+
+.cols>div:last-child {
+    flex: 3;
+}
+
+.cols.r {
+    flex-direction: row-reverse;
+}
+
+.cols h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    letter-spacing: -0.05rem;
+}
+
+@media (max-width: 560px) {
+    .cols, .cols.r {
+        flex-direction: column;
+    }
+}
+
+.button {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background-color: #3688f2;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+    margin-top: 1.5rem;
+    width: fit-content;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.button:hover {
+    background-color: #1676f3;
+}
+
+.button:active {
+    background-color: #1676f3;
+}
+
+#mapy img {
+    border-top-right-radius: 4rem;
+}
+
+#cafe img {
+    border-bottom-left-radius: 4rem;
+}
+
+#metro img {
+    border-bottom-right-radius: 4rem;
+}
+
+
+#legendy img {
+    border-top-left-radius: 4rem;
+}
+
+#form h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 3rem 0;
+}
+
+.blu {
+    color: #3688f2;
+}
