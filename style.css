@@ -51,6 +51,10 @@ header>div:nth-child(1) {
     justify-content: center;
 }
 
+#logotype {
+    margin-bottom: 0.6rem;
+}
+
 #book {
     transform: rotate(10deg);
 }
