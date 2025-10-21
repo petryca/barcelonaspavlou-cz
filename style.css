@@ -264,3 +264,12 @@ header>div:nth-child(1) {
 .blu {
     color: #3688f2;
 }
+
+footer {
+    border-top: 1px solid #333;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: auto;
+    text-align: center;
+    padding-top: 3rem;
+}
