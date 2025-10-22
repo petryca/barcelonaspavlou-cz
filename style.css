@@ -60,6 +60,10 @@ header>div:nth-child(1) {
 }
 
 @media (max-width: 768px) {
+    body {
+        gap: 2rem;
+        padding: 2rem;
+    }
     header {
         grid-template-columns: 1fr;
         text-align: center;
