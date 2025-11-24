@@ -115,6 +115,17 @@ header>div:nth-child(1) {
     }  
 }
 
+#advent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#advent img {
+    max-width: var(--max-width);
+}
+
 #pavla {
     position: relative;
     max-width: var(--max-width);
