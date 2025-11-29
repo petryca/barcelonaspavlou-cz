@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,800&display=swap');
 
+/* =========================
+   Base + Design Tokens
+   ========================= */
 
 * {
     margin: 0;
@@ -10,23 +13,41 @@
 html {
     font-size: 16px;
     scroll-behavior: smooth;
-    --max-width: 1000px;
-}
 
-img {
-    display: block;
-    width: 100%;
-    height: auto;
+    /* Layout tokens */
+    --max-width: 1000px;
+    --page-padding: 3rem;
+    --section-gap: 3rem;
+
+    /* Colors */
+    --color-text: #000;
+    --color-primary: #3688f2;
+    --color-primary-dark: #1676f3;
+
+    /* Radii */
+    --radius-section: 2rem;
+    --radius-image: 4rem;
 }
 
 body {
     font-family: 'Open Sans', sans-serif;
+    line-height: 1.4;
+    color: var(--color-text);
+
     display: grid;
     grid-template-columns: 1fr;
-    gap: 3rem;
-    line-height: 1.4;
-    padding: 3rem;
+    gap: var(--section-gap);
+    padding: var(--page-padding);
 }
+
+/* Max-width wrapper for main blocks */
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin-inline: auto;
+}
+
+/* Typography helpers */
 
 b {
     font-weight: 800;
@@ -36,15 +57,25 @@ b {
     font-size: 1.2rem;
 }
 
+/* Media elements */
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* =========================
+   Header
+   ========================= */
+
 header {
     display: grid;
     grid-template-columns: 4fr 3fr;
     gap: 2rem;
-    max-width: var(--max-width);
-    margin: auto;
 }
 
-header>div:nth-child(1) {
+header>div:first-child {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,61 +90,35 @@ header>div:nth-child(1) {
     transform: rotate(10deg);
 }
 
-@media (max-width: 768px) {
-    body {
-        gap: 2rem;
-        padding: 2rem;
-    }
-    header {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
-    }
-    header>div:nth-child(1) {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    header>div:nth-child(2) {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    #book {
-        transform: rotate(-4deg);
-        max-width: 26rem;
-    }
-    
+/* =========================
+   Icons (section navigation)
+   ========================= */
+
+#icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.8rem;
+    text-align: center;
 }
 
 .material-symbols-outlined {
-    font-size: 6rem !important; /* Force the size */
+    font-size: 6rem !important;
+    /* override default icon size */
     display: block;
     text-decoration: none;
     color: #000;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .material-symbols-outlined:hover {
-    color: #3688f2;
+    color: var(--color-primary);
     transform: scale(1.1);
 }
 
-#icons {
-    text-align: center;
-    display: flex;
-    gap: 1.8rem;
-    width: 100%;
-    max-width: var(--max-width);
-    margin: auto;
-    justify-content: space-between;
-}
-
-@media (max-width: 680px) {
-    #icons {
-        flex-direction: column;
-    }  
-}
+/* =========================
+   Advent hero
+   ========================= */
 
 #advent {
     display: flex;
@@ -126,11 +131,9 @@ header>div:nth-child(1) {
     max-width: calc(var(--max-width) - 40px);
 }
 
-#pavla {
-    position: relative;
-    max-width: var(--max-width);
-    margin: auto;
-}
+/* =========================
+   Pavla quote bubble
+   ========================= */
 
 #pavla img {
     border-radius: 50%;
@@ -138,25 +141,24 @@ header>div:nth-child(1) {
 
 #pavla>div {
     position: relative;
-    background-color: #3688f2;
-    border-radius: 2rem 2rem 2rem 0;
+    background-color: var(--color-primary);
+    border-radius: var(--radius-section) var(--radius-section) var(--radius-section) 0;
     display: grid;
     grid-template-columns: 1fr 3fr;
-    max-width: var(--max-width);
     margin-left: 3rem;
 }
 
-#pavla>div:after {
+#pavla>div::after {
     content: '';
     position: absolute;
-    display: block;
-    width: 0;
-    z-index: 1;
-    border-style: solid;
-    border-width: 0 0 3rem 3rem;
-    border-color: transparent transparent #3688f2 transparent;
     bottom: 0;
     left: -3rem;
+    z-index: 1;
+
+    width: 0;
+    border-style: solid;
+    border-width: 0 0 3rem 3rem;
+    border-color: transparent transparent var(--color-primary) transparent;
 }
 
 #pavla>div>div {
@@ -166,36 +168,14 @@ header>div:nth-child(1) {
     align-items: center;
 }
 
-@media (max-width: 768px) {
-    #pavla>div {
-        margin-left: 0;
-        border-radius: 2rem;
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    #pavla>div:after {
-        display: none;
-    }
-    #pavla>div>div:nth-child(1) {
-        padding: 2rem 3rem 1rem 3em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    #pavla>div>div:nth-child(2) {
-        padding: 0 2rem 2rem 2rem;
-    }
-    #pavla img {
-        max-width: 12rem;
-    }
-}
+/* =========================
+   Two-column content sections
+   ========================= */
 
 .cols {
     display: flex;
     flex-direction: row;
     gap: 4rem;
-    max-width: var(--max-width);
-    margin: 0 auto;
     width: 100%;
 }
 
@@ -224,50 +204,52 @@ header>div:nth-child(1) {
     letter-spacing: -0.05rem;
 }
 
-@media (max-width: 560px) {
-    .cols, .cols.r {
-        flex-direction: column;
-    }
-}
-
-.button {
-    display: inline-block;
-    padding: 0.5rem 1.5rem;
-    background-color: #3688f2;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 0.5rem;
-    transition: background-color 0.3s ease;
-    margin-top: 1.5rem;
-    width: fit-content;
-    text-transform: uppercase;
-    font-weight: 800;
-}
-
-.button:hover {
-    background-color: #1676f3;
-}
-
-.button:active {
-    background-color: #1676f3;
-}
-
+/* Section-specific image radii */
 #mapy img {
-    border-top-right-radius: 4rem;
+    border-top-right-radius: var(--radius-image);
 }
 
 #cafe img {
-    border-bottom-left-radius: 4rem;
+    border-bottom-left-radius: var(--radius-image);
 }
 
 #metro img {
-    border-bottom-right-radius: 4rem;
+    border-bottom-right-radius: var(--radius-image);
 }
-
 
 #legendy img {
-    border-top-left-radius: 4rem;
+    border-top-left-radius: var(--radius-image);
 }
+
+/* =========================
+   Buttons
+   ========================= */
+
+.button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.5rem 1.5rem;
+
+    background-color: var(--color-primary);
+    color: #fff;
+    text-decoration: none;
+
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    font-weight: 800;
+
+    transition: background-color 0.3s ease;
+    width: fit-content;
+}
+
+.button:hover,
+.button:active {
+    background-color: var(--color-primary-dark);
+}
+
+/* =========================
+   Form section
+   ========================= */
 
 #form h1 {
     text-align: center;
@@ -277,14 +259,86 @@ header>div:nth-child(1) {
 }
 
 .blu {
-    color: #3688f2;
+    color: var(--color-primary);
 }
+
+/* =========================
+   Footer
+   ========================= */
 
 footer {
     border-top: 1px solid #333;
-    width: 100%;
-    max-width: var(--max-width);
-    margin: auto;
     text-align: center;
     padding-top: 3rem;
+}
+
+/* =========================
+   Responsive
+   ========================= */
+
+/* Up to tablet */
+@media (max-width: 768px) {
+    body {
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    header {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    header>div:first-child,
+    header>div:last-child {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #book {
+        transform: rotate(-4deg);
+        max-width: 26rem;
+    }
+
+    #pavla>div {
+        margin-left: 0;
+        border-radius: var(--radius-section);
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    #pavla>div::after {
+        display: none;
+    }
+
+    #pavla>div>div:first-child {
+        padding: 2rem 3rem 1rem 3rem;
+        justify-content: center;
+    }
+
+    #pavla>div>div:last-child {
+        padding: 0 2rem 2rem 2rem;
+    }
+
+    #pavla img {
+        max-width: 12rem;
+    }
+}
+
+/* Icons stack on narrow screens */
+@media (max-width: 680px) {
+    #icons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Columns stack on mobile */
+@media (max-width: 560px) {
+
+    .cols,
+    .cols.r {
+        flex-direction: column;
+    }
 }
