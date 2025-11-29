@@ -272,6 +272,10 @@ footer {
     padding-top: 3rem;
 }
 
+footer a {
+    color: inherit;
+}
+
 /* =========================
    Responsive
    ========================= */
