@@ -123,7 +123,7 @@ header>div:nth-child(1) {
 }
 
 #advent img {
-    max-width: var(--max-width);
+    max-width: calc(var(--max-width) - 40px);
 }
 
 #pavla {
