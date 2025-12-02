@@ -23,6 +23,7 @@ html {
     --color-text: #000;
     --color-primary: #3688f2;
     --color-primary-dark: #1676f3;
+    --color-green: #259813;
 
     /* Radii */
     --radius-section: 2rem;
@@ -249,17 +250,36 @@ header>div:first-child {
 
 /* =========================
    Form section
-   ========================= */
+   ========================= */   
+
+#form {
+    text-align: center;
+}   
 
 #form h1 {
     text-align: center;
     font-size: 2rem;
     font-weight: 800;
-    margin: 3rem 0;
+    margin: 3rem 0 1.5rem 0;
+}
+
+#form .button {
+    font-size: 1.5rem;
 }
 
 .blu {
     color: var(--color-primary);
+}
+
+.price {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--color-green);
+}
+
+.payment-logos {
+    max-width: 400px;
+    margin: 1.5rem auto 0 auto;
 }
 
 /* =========================
